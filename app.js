@@ -28,8 +28,9 @@ window.addEventListener("load", () => {
 				})
 				.then((info) => {
 					console.log(info);
+					var climateValue = info["current"]["weather"][0]["main"];
 					var tempResult = info["current"]["temp"];
-					//climate.textContent = climateValue;
+					climate.textContent = climateValue;
 					tempValue.textContent = Math.round(tempResult - 273);
 			});
 			
