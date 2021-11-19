@@ -18,9 +18,23 @@ window.addEventListener("load", () => {
 			console.log(lat);
 
 			const proxy = "https://cors-anywhere.herokuapp.com/";
+			
+			
+			const apiTemp = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=hourly,daily,minutely&appid=8dfb15d186962530cc9513ff022e6520`;
+
+			fetch(apiTemp)
+				.then((blob) => {
+					return blob.json();
+				})
+				.then((info) => {
+					console.log(info);
+					var tempResult = info["current"]["temp"];
+					climate.textContent = tempResult;
+					tempValue.textContent = Math.round(tempResult - 273);
+			});
+			
 			const api = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=5&appid=625037f0235064cf2de2b5f513b37f77`;
 			
-
 			fetch(api)
 				.then((response) => {
 					return response.json();
@@ -28,10 +42,7 @@ window.addEventListener("load", () => {
 				.then((data) => {
 					console.log(data);
 					var main = data[0]["name"];
-					//var tempResult = data["current"]["temp"];
 					loc.textContent = main;
-					climate.textContent = tempResult;
-					tempValue.textContent = Math.round(tempResult - 273);
 				});
 		});
 	}
