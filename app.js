@@ -28,11 +28,9 @@ window.addEventListener("load", () => {
 				.then((data) => {
 					console.log(data);
 					var main = data[0]["name"];
-					console.log(main);
 					var tempResult = data["current"]["temp"];
-					var locationName = data["timezone"];
-					loc.textContent = locationName;
-					climate.textContent = main;
+					loc.textContent = main;
+					climate.textContent = tempResult;
 					tempValue.textContent = Math.round(tempResult - 273);
 				});
 		});
