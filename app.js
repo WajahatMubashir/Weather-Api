@@ -27,13 +27,13 @@ window.addEventListener("load", () => {
 				})
 				.then((data) => {
 					console.log(data);
-					var main = data["name"];
+					var main = data[0]["name"];
+					console.log(main);
 					var tempResult = data["current"]["temp"];
 					var locationName = data["timezone"];
 					loc.textContent = locationName;
 					climate.textContent = main;
 					tempValue.textContent = Math.round(tempResult - 273);
-					console.log(data);
 				});
 		});
 	}
