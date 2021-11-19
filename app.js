@@ -18,14 +18,10 @@ window.addEventListener("load", () => {
 			console.log(lat);
 
 			const proxy = "https://cors-anywhere.herokuapp.com/";
-			const api = `${proxy}//https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=5&appid=625037f0235064cf2de2b5f513b37f77`;
+			const api = `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=5&appid=625037f0235064cf2de2b5f513b37f77`;
+			
 
-			fetch(api, {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-			})
+			fetch(api)
 				.then((response) => {
 					return response.json();
 				})
