@@ -17,11 +17,10 @@ window.addEventListener("load", () => {
 			console.log(long);
 			console.log(lat);
 
-			const proxy = "https://cors-anywhere.herokuapp.com/";
+			//const proxy = "https://cors-anywhere.herokuapp.com/"; In Case we face access denied problem we put this proxy link infront of our API.
 			
-			
+			//This API gives us Climate and Temprature.
 			const apiTemp = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=hourly,daily,minutely&appid=8dfb15d186962530cc9513ff022e6520`;
-
 			fetch(apiTemp)
 				.then((blob) => {
 					return blob.json();
@@ -34,8 +33,8 @@ window.addEventListener("load", () => {
 					tempValue.textContent = Math.round(tempResult - 273);
 			});
 			
-			const api = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=5&appid=625037f0235064cf2de2b5f513b37f77`;
-			
+			//This API Shows Us our Location
+			const api = `https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${long}&limit=5&appid=625037f0235064cf2de2b5f513b37f77`;		
 			fetch(api)
 				.then((response) => {
 					return response.json();
