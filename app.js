@@ -28,7 +28,7 @@ window.addEventListener("load", () => {
 				.then((data) => {
 					console.log(data);
 					var main = data[0]["name"];
-					var tempResult = data["current"]["temp"];
+					//var tempResult = data["current"]["temp"];
 					loc.textContent = main;
 					climate.textContent = tempResult;
 					tempValue.textContent = Math.round(tempResult - 273);
