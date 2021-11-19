@@ -27,9 +27,9 @@ window.addEventListener("load", () => {
 					return blob.json();
 				})
 				.then((info) => {
-					var climateValue = current.weather[0]["main"];
+					console.log(info);
 					var tempResult = info["current"]["temp"];
-					climate.textContent = climateValue;
+					//climate.textContent = climateValue;
 					tempValue.textContent = Math.round(tempResult - 273);
 			});
 			
